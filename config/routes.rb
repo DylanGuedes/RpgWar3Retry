@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   root 'rpg#index'
+
+  #rpg controller
+  get '/help' => 'rpg#help'
+
+  #users controller
+  get '/signup' => 'users#new'
+  get '/signin' => 'users#new'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
