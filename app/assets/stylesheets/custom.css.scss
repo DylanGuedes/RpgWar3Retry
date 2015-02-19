@@ -1,76 +1,98 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+/* universal */
+
 body {
-  //background-color: #4B7399;
-  background-color: #CFE3E0;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  padding-top: 30px;
 }
 
-a img {
-  border: none;
+section {
+  overflow: auto;
 }
 
-a {
-  color: #0000FF;
+textarea {
+  resize: vertical;
 }
 
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
 }
 
-#flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
 }
 
-#flash_error, #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 
-.fieldWithErrors {
-  display: inline;
-}
 
-.error_messages {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  font-size: 12px;
-}
+/* header */
 
-.error_messages h2 {
-  text-align: left;
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 2.0em;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-top: 15px;
   font-weight: bold;
-  padding: 5px 10px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
+  &:hover {
+    color: #594E4E;
+    text-decoration: none;
+  }
 }
 
-.error_messages p {
-  margin: 8px 10px;
-}
+/* footer */
 
-.error_messages ul {
-  margin: 0;
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
