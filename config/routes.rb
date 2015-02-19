@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/help' => 'rpg#help'
 
   #users controller
+  resources :users
   get '/signup' => 'users#new'
   get '/signin' => 'users#new'
   

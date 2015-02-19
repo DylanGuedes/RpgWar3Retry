@@ -1,1 +1,8 @@
-  
+<% provide(:title, 'Sign Up') %>
+<h1>Sign Up</h1>
+<center>
+  <%= form_for(@user) do |f| %>
+    <%= render 'fields', f: f %>
+    <%= f.submit "Done!", class: "button success round large" %>
+  <% end %>
+</center>

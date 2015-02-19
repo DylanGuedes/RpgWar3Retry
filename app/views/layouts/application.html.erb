@@ -17,12 +17,13 @@
     </div>
   <% end %>
 
-  <%= render '/layouts/sidebar' %>
-
-  
-  <div id="container">
-    <%= yield %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render '/layouts/sidebar' %>
+    </div>
+    <div class="col-md-9">
+      <%= yield %>
+    </div>
   </div>
-
 </body>
 </html>
