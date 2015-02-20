@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign Up') %>
-<h1>Sign Up</h1>
 <center>
+<h1>Sign Up</h1>
   <%= form_for(@user) do |f| %>
     <%= render 'fields', f: f %>
     <%= f.submit "Done!", class: "btn btn-primary" %>
