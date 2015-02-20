@@ -8,7 +8,7 @@
   </head>
   <body>  
     <%= render '/layouts/header' %>
-    <% if signed_in? %>
+    <% if signed_in? && can_play?(current_user) %>
       <div class="row">
         <div class="col-md-3">
           <%= render '/layouts/sidebar' %>
