@@ -5,33 +5,34 @@
       <div class="col-md-3">        
       </div>
       <div class="col-md-6">
-        <div class="progress">
-          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.hp_min %>%;">            
+        <div class="progress" title="Max HP">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.hp_min %>%;" title="Current HP">            
           </div>
         </div>
-        <div class="progress">
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.mp_in_percentage %>%;">            
+        <div class="progress" title="Max MP">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.mp_in_percentage %>%;" title="Current MP">            
+          </div>
+        </div>
+
+        <div class="progress" title="EXP to next level">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.exp_in_percentage %>%;" title="Current EXP">            
           </div>
         </div>
       </div>
     </div>
 
     <center>
-      <span class="label label-default"><%= current_user.login %></span>
-      <span class="label label-default"><%= current_user.player.exp %></span>
-      <span class="label label-default"><%= image_tag("battered-axe.png", size: "16x16") %> <%= current_user.player.damage %></span>
-      <span class="label label-default"><%= image_tag("gold-bar.png", size: "16x16") %><%= current_user.player.gold %></span>
+      <h3>
+      <span class="label label-default"><%= image_tag("battered-axe.png", size: "25x25", title: "Damage") %> <%= current_user.player.damage %></span>
+      <span class="label label-default"><%= image_tag("gold-bar.png", size: "25x25", title: "Gold") %><%= current_user.player.gold %></span>
+      <span class="label label-default"><%= image_tag("round-shield.png", title: "Defense", size: "25x25") %><%= current_user.player.defense %></span>
+      <br>
+
+      </h3>
     </center>
     <br>
   </div>
 
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img alt="Brand" src="/assets/images/gold-bar.png"><%= image_tag("gold-bar.xcf") %></a>
-    </div>
-  </div>
-</nav>
 <% else %>
   <h1>CREATE YOUR CHARACTER</h1>
 <% end -%>
