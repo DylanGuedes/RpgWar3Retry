@@ -1,9 +1,28 @@
-<div class="stats_container">
-  <br>
-  <center>
-    <span class="label label-default"><%= current_user.login %></span>
-    <span class="label label-default"><%= current_user.player.exp %></span>
-    <span class="label label-default"><%= current_user.player.damage %></span>
-  </center>
-  <br>
-</div>
+<% if current_user.player.playable? %>
+  <div class="stats_container">
+    <br>
+    <div class="row">
+      <div class="col-md-3">        
+      </div>
+      <div class="col-md-6">
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.hp_min %>%;">            
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.mp_min %>%;">            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <center>
+      <span class="label label-default"><%= current_user.login %></span>
+      <span class="label label-default"><%= current_user.player.exp %></span>
+      <span class="label label-default"><%= current_user.player.damage %></span>
+    </center>
+    <br>
+  </div>
+<% else %>
+  <h1>CREATE YOUR CHARACTER</h1>
+<% end -%>

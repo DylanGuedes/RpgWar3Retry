@@ -10,7 +10,9 @@
     <%= render '/layouts/header' %>
     <% if signed_in? && can_play?(current_user) %>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
           <%= render '/layouts/sidebar' %>
         </div>
         <div class="col-md-9">      
