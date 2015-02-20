@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>YAOOP - THE RETURN</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>  
-  <%= render '/layouts/header' %>
-
-
-  <div class="row">
-    <div class="col-md-3">
-      <%= render '/layouts/sidebar' %>
-    </div>
-    <div class="col-md-9">      
-      <% if !flash.empty? %>        
-        <% flash.each do |message_type, message| %>
-          <center><div class="alert alert-<%= message_type %>"><%= message %></div></center>
-        <% end %>        
-      <% end %>
+  <head>
+    <title>YAOOP - THE RETURN</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>  
+    <%= render '/layouts/header' %>
+    <% if signed_in? %>
+      <div class="row">
+        <div class="col-md-3">
+          <%= render '/layouts/sidebar' %>
+        </div>
+        <div class="col-md-9">      
+          <% if !flash.empty? %>        
+            <% flash.each do |message_type, message| %>
+              <center><div class="alert alert-<%= message_type %>"><%= message %></div></center>
+            <% end %>        
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
-  </div>
-</body>
+    <% end %>
+  </body>
 </html>
