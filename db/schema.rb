@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220151550) do
+ActiveRecord::Schema.define(version: 20150220154410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(version: 20150220151550) do
     t.float    "damage",     default: 15.0
     t.boolean  "atacable",   default: false
     t.float    "defense",    default: 0.0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "level",      default: 1
+    t.string   "state",      default: "city"
   end
 
   create_table "roles", force: :cascade do |t|

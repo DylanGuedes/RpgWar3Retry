@@ -1,0 +1,6 @@
+<% if current_user.player.atacable? %>
+  <%= render 'jungle' %>
+<% else %>
+  <%= render 'city' %>
+
+<% end %>

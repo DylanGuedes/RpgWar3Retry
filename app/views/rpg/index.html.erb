@@ -1,6 +1,10 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+<% if can_play? current_user %>
+  <%= render 'world' %>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the YAOOP!</h1>
 
-  <h2>
-    This is the resurrection of the old YAOOP.
-  </h2>
+    <h2>
+      This is the resurrection of the old YAOOP.
+    </h2>
+<% end %>

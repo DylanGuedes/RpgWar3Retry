@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   #rpg controller
   get '/help' => 'rpg#help'
 
+  #shop controller
+  get '/shop' => 'shop#index'
+
   #users controller
   resources :users
   get '/signup' => 'users#new'
