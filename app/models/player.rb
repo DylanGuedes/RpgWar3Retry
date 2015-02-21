@@ -3,6 +3,8 @@ class Player < ActiveRecord::Base
   include RpgHelper
   has_one :role
   has_many :battles
+  belongs_to :user
+
   def playable?
     !self.role.nil?
   end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   #rpg controller
   get '/help' => 'rpg#help'
+  get '/targets' => 'rpg#targets'
+  get '/new_player' => 'rpg#new_player'
 
   #shop controller
   get '/shop' => 'shop#index'

@@ -1,0 +1,3 @@
+<% @players.each do |targ| %>
+  <%= button_to "Attack", { :controller => "battle", :action => "attack_player", :starter_id => current_user.player.id, :target_id => targ.id } %>
+<% end %>
