@@ -1,9 +1,8 @@
 class Player < ActiveRecord::Base
   include ApplicationHelper
   include RpgHelper
-  belongs_to :user
   has_one :role
-
+  has_many :battles
   def playable?
     !self.role.nil?
   end
