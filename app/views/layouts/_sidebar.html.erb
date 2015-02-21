@@ -1,7 +1,7 @@
 <% if current_user.player.playable? %>
   <div class="stats_container">
     <br>
-    <center><h2><%= current_user.login %></h2></center>
+    <center><h2><%= current_user.player.state %></h2></center>
     <div class="row">
       <div class="col-md-3">        
       </div>
@@ -15,26 +15,10 @@
           </div>
         </div>
 
-        <div class="progress" title="EXP to next level">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.exp_in_percentage %>%;" title="Current EXP">            
-          </div>
-        </div>
+
       </div>
     </div>
 
-    <center>
-      <h3>
-      <span class="label label-default"><%= image_tag("battered-axe.png", size: "30x25", title: "Damage") %> <%= current_user.player.damage %></span>
-      <span class="label label-default"><%= image_tag("gold-bar.png", size: "30x25", title: "Gold") %><%= current_user.player.gold %></span>
-      <span class="label label-default"><%= image_tag("round-shield.png", title: "Defense", size: "30x25") %><%= current_user.player.defense %></span>
-      <br>
-      <br>
-      <span class="label label-default"><%= image_tag("dripping-knife.png", title: "Kills", size: "30x25") %><%= "  #{current_user.player.kills}" %></span>
-      <span class="label label-default"><%= image_tag("carrion.png", title: "Deaths", size: "30x25") %><%= "   #{current_user.player.deaths}" %></span>
-      <br>
-
-      </h3>
-    </center>
     <br>      
   </div>
 <% else %>
