@@ -1,8 +1,9 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
-
-  <h2>
-    This is the resurrection of the old YAOOP.
-  </h2>
-
-
+<% if can_play? current_user %>
+  <%= render 'world' %>
+<% else %>
+  <% if signed_in? %>
+    <h1><%= link_to 'New Char', new_player_path %></h1>
+  <% else %>
+    <h1>Please, register. :(</h1>
+  <% end %>
+<% end %>

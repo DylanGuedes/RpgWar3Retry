@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219204742) do
+ActiveRecord::Schema.define(version: 20150221113408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "battles", force: :cascade do |t|
+    t.integer  "starter_id"
+    t.integer  "target_id"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
+    t.boolean  "draw"
+    t.text     "battle_log", default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,13 +38,25 @@ ActiveRecord::Schema.define(version: 20150219204742) do
     t.integer  "kills",      default: 0
     t.integer  "gold",       default: 100
     t.integer  "exp",        default: 0
-    t.float    "hp_max",     default: 20.0
-    t.float    "hp_min",     default: 20.0
+    t.float    "hp_max",     default: 100.0
+    t.float    "hp_min",     default: 100.0
+    t.float    "mp_max",     default: 20.0
+    t.float    "mp_min",     default: 20.0
     t.float    "damage",     default: 15.0
     t.boolean  "atacable",   default: false
     t.float    "defense",    default: 0.0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "level",      default: 1
+    t.string   "state",      default: "city"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "player_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

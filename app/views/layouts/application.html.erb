@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>YAOOP - THE RETURN</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>  
-  <%= render '/layouts/header' %>
-  <% if !flash.empty? %>
-    <div id="container">
-      <% flash.each do |key, value| %>
-        <h1><div class="alert alert-<%= key %>"><%= value %></div></h1>
+  <head>
+    <title>YAOOP - THE RETURN</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>  
+    <%= render '/layouts/header' %>
+    <div class="stuff">
+      <% if signed_in? && can_play?(current_user) %>
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-2">
+            <%= render '/layouts/sidebar' %>
+          </div>
+          <div class="col-md-9">      
+            <% if !flash.empty? %>        
+              <% flash.each do |message_type, message| %>
+                <center><div class="alert alert-<%= message_type %>"><%= message %></div></center>
+              <% end %>        
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
       <% end %>
     </div>
-  <% end %>
-
-  <div id="container">
-    <%= yield %>
-  </div>
-
-</body>
+  </body>
 </html>
