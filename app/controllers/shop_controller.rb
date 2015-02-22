@@ -9,11 +9,11 @@ class ShopController < ApplicationController
   def purchase_item
     desired_item = CosmeticItem.find(params[:id])
     if current_user.player.can_purchase? desired_item
-      desired_item.apply_status current_user.player
+      desired_item.apply_status current_user.player, desired_item
       flash[:success] = "Purchased!"
       redirect_to shop_path
     else
-      flash[:error] = "You don't have enough gold."
+      flash[:danger] = "You don't have enough gold."
       redirect_to shop_path
     end
   end
