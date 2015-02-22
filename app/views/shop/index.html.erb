@@ -36,10 +36,10 @@
       <td>Purchase</td>
     </thead>
     <tr>
-      <td><%= image_tag("#{a.image_path}.png", size: "50x50") %></td>
+      <td><%= image_tag("#{w.image_path}.png", size: "50x50") %></td>
       <td><%= w.name %></td>
       <td><%= w.price %></td>
-      <td><%= w.defense %></td>      
+      <td><%= w.damage %></td>      
       <td><%= w.description %></td>
       <td><%= link_to "Purchase this item",  { :controller => 'shop', :action => 'purchase_item', :id => w.id } %></td>
     </tr>
@@ -58,7 +58,7 @@
       <td>Purchase</td>
     </thead>
     <tr>
-      <td><%= image_tag("#{a.image_path}.png", size: "50x50") %></td>
+      <td><%= image_tag("#{h.image_path}.png", size: "50x50") %></td>
       <td><%= h.name %></td>
       <td><%= h.price %></td>
       <td><%= h.defense %></td>      

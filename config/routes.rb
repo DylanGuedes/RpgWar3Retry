@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   #items controller
   resources :items
+  resources :cosmetic_items
 
   #rpg controller
   get '/help' => 'rpg#help'

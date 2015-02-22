@@ -1,0 +1,2 @@
+module CosmeticItemHelper
+end
