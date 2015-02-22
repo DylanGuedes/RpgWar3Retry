@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'rpg#index'
 
+  #items controller
+  resources :items
+
   #rpg controller
   get '/help' => 'rpg#help'
   get '/targets' => 'rpg#targets'

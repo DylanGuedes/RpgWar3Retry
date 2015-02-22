@@ -2,17 +2,19 @@
   Avaible gold: <%= current_user.player.gold %>
 </h1>
 
+
+
 <h2>Armor:</h2>
-<p><%= link_to 'Leather Armor', '#' %></p>
+<% @armors.each do |a| %>
+  <%= a.name %>
+<% end %>
 
 <h2>Weapons:</h2>
-<p><%= link_to 'Heavy Axe', '#' %></p>
-<p><%= link_to 'Double Axe', '#' %></p>
-<p><%= link_to 'Low Crossbow', '#' %></p>
-<p><%= link_to 'Blade', '#' %></p>
-<p><%= link_to 'Mace', '#' %></p>
-<p><%= link_to 'Dagger', '#' %></p>
-<p><%= link_to 'Pistol', '#' %></p>
+<% @weapons.each do |w| %>
+  <%= w.name %>
+<% end %>
 
-<h2>Protection:</h2>
-<p><%= link_to 'Light Shield', '#' %></p>
+<h2>Helm:</h2>
+<% @helms.each do |h| %>
+  <%= h.name %>
+<% end -%>
