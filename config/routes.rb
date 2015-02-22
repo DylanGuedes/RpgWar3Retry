@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   #shop controller
   get '/shop' => 'shop#index'
+  get '/purchase_item/:id' => 'shop#purchase_item'
 
   #users controller
   resources :users

@@ -2,19 +2,23 @@
   Avaible gold: <%= current_user.player.gold %>
 </h1>
 
-
-
 <h2>Armor:</h2>
 <% @armors.each do |a| %>
   <%= a.name %>
+  <%= a.price %>
+  <%= link_to "COMPRAR",  { :controller => 'shop', :action => 'purchase_item', :id => a.id } %>
 <% end %>
 
 <h2>Weapons:</h2>
 <% @weapons.each do |w| %>
   <%= w.name %>
+  <%= w.price %>
+  <%= link_to "COMPRAR", { :controller => 'shop', :action => 'purchase_item', :id => w.id } %>
 <% end %>
 
 <h2>Helm:</h2>
 <% @helms.each do |h| %>
   <%= h.name %>
+  <%= h.price %>
+  <%= link_to "COMPRAR", '#' %>
 <% end -%>
