@@ -1,24 +1,69 @@
-<h1>
+<h2>
   Avaible gold: <%= current_user.player.gold %>
-</h1>
+</h2>
 
 <h2>Armor:</h2>
 <% @armors.each do |a| %>
-  <%= a.name %>
-  <%= a.price %>
-  <%= link_to "COMPRAR",  { :controller => 'shop', :action => 'purchase_item', :id => a.id } %>
+  <table class="table">
+    <thead>
+      <td></td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Defense</td>
+      <td>Description</td>
+      <td>Purchase</td>
+    </thead>
+    <tr>
+      <td><%= image_tag("#{a.image_path}.png", size: "50x50") %></td>
+      <td><%= a.name %></td>
+      <td><%= a.price %></td>
+      <td><%= a.defense %></td>      
+      <td><%= a.description %></td>
+      <td><%= link_to "Purchase this item",  { :controller => 'shop', :action => 'purchase_item', :id => a.id } %></td>
+    </tr>
+  </table>
 <% end %>
 
 <h2>Weapons:</h2>
 <% @weapons.each do |w| %>
-  <%= w.name %>
-  <%= w.price %>
-  <%= link_to "COMPRAR", { :controller => 'shop', :action => 'purchase_item', :id => w.id } %>
+  <table class="table">
+    <thead>
+      <td></td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Damage</td>
+      <td>Description</td>
+      <td>Purchase</td>
+    </thead>
+    <tr>
+      <td><%= image_tag("#{a.image_path}.png", size: "50x50") %></td>
+      <td><%= w.name %></td>
+      <td><%= w.price %></td>
+      <td><%= w.defense %></td>      
+      <td><%= w.description %></td>
+      <td><%= link_to "Purchase this item",  { :controller => 'shop', :action => 'purchase_item', :id => w.id } %></td>
+    </tr>
+  </table>
 <% end %>
 
 <h2>Helm:</h2>
 <% @helms.each do |h| %>
-  <%= h.name %>
-  <%= h.price %>
-  <%= link_to "COMPRAR", '#' %>
+  <table class="table">
+    <thead>
+      <td></td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Defense</td>
+      <td>Description</td>
+      <td>Purchase</td>
+    </thead>
+    <tr>
+      <td><%= image_tag("#{a.image_path}.png", size: "50x50") %></td>
+      <td><%= h.name %></td>
+      <td><%= h.price %></td>
+      <td><%= h.defense %></td>      
+      <td><%= h.description %></td>
+      <td><%= link_to "Purchase this item",  { :controller => 'shop', :action => 'purchase_item', :id => h.id } %></td>
+    </tr>
+  </table>
 <% end -%>

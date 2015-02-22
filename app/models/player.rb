@@ -25,6 +25,6 @@ class Player < ActiveRecord::Base
   end
 
   def can_purchase? item
-    self.gold > item.price ? true : false
+    self.gold >= item.price ? true : false
   end
 end
