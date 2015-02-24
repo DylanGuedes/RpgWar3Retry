@@ -3,6 +3,9 @@ class Player < ActiveRecord::Base
   include RpgHelper
   has_one :role
   has_many :battles
+  has_one :helm
+  has_one :armor
+  has_one :weapon
   belongs_to :user
 
   def playable?
@@ -19,5 +22,9 @@ class Player < ActiveRecord::Base
 
   def exp_in_percentage
     in_percentage LEVEL_EXP[self.level - 1], self.exp
+  end
+
+  def can_purchase? item
+    self.gold >= item.price ? true : false
   end
 end

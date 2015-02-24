@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'rpg#index'
 
+  #items controller
+  resources :items
+  resources :cosmetic_items
+
   #rpg controller
   get '/help' => 'rpg#help'
   get '/targets' => 'rpg#targets'
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
 
   #shop controller
   get '/shop' => 'shop#index'
+  get '/purchase_item/:id' => 'shop#purchase_item'
 
   #users controller
   resources :users
@@ -18,7 +23,11 @@ Rails.application.routes.draw do
   delete '/signout' => 'sessions#destroy'
   post '/signin' => 'sessions#create'
 
+  #battle controller
+  get '/attack_player' => 'battle#attack_player'
   
+  #admin_panel controller
+  get '/admin_panel' => 'admin_panel#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

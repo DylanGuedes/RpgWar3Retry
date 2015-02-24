@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221113408) do
+ActiveRecord::Schema.define(version: 20150222133856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,30 @@ ActiveRecord::Schema.define(version: 20150221113408) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "cosmetic_items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.float    "damage"
+    t.float    "defense"
+    t.string   "type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "image_path"
+    t.string   "cosmetic_type"
+  end
+
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
+    t.float    "damage"
+    t.float    "defense"
+    t.string   "type"
+    t.integer  "player_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image_path"
   end
 
   create_table "players", force: :cascade do |t|
@@ -67,8 +88,9 @@ ActiveRecord::Schema.define(version: 20150221113408) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
   end
 
 end
