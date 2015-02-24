@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222133856) do
+ActiveRecord::Schema.define(version: 20150224190710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,21 +55,23 @@ ActiveRecord::Schema.define(version: 20150222133856) do
 
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "deaths",     default: 0
-    t.integer  "kills",      default: 0
-    t.integer  "gold",       default: 100
-    t.integer  "exp",        default: 0
-    t.float    "hp_max",     default: 100.0
-    t.float    "hp_min",     default: 100.0
-    t.float    "mp_max",     default: 20.0
-    t.float    "mp_min",     default: 20.0
-    t.float    "damage",     default: 15.0
-    t.boolean  "atacable",   default: false
-    t.float    "defense",    default: 0.0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "level",      default: 1
-    t.string   "state",      default: "city"
+    t.integer  "deaths",        default: 0
+    t.integer  "kills",         default: 0
+    t.integer  "gold",          default: 100
+    t.integer  "exp",           default: 0
+    t.float    "hp_max",        default: 100.0
+    t.float    "hp_min",        default: 100.0
+    t.float    "mp_max",        default: 20.0
+    t.float    "mp_min",        default: 20.0
+    t.float    "damage",        default: 15.0
+    t.boolean  "atacable",      default: false
+    t.float    "defense",       default: 0.0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "level",         default: 1
+    t.string   "state",         default: "city"
+    t.float    "extra_defense", default: 0.0
+    t.float    "extra_damage",  default: 0.0
   end
 
   create_table "roles", force: :cascade do |t|
