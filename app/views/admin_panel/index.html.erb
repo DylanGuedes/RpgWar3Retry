@@ -1,28 +1,9 @@
 <h1>NEW ITEM</h1>
-<%= form_for @item do |f| -%>
+<%= fields_for @cosmetic_item do |f| %>
   <center>
-    <%= f.label :name, "Name" %><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :description, "Description" %><br>
-    <%= f.text_field :description %><br>
-    <%= f.label :damage, "Damage" %><br>
-    <%= f.number_field :damage %><br>
-    <%= f.label :defense, "Defense" %><br>
-    <%= f.number_field :defense %><br>
-    <%= f.label :price, "Price" %><br>
-    <%= f.number_field :price %><br>
-    <%= f.label :image_path, "Image Path" %><br>
-    <%= f.text_field :image_path %><br> 
-    <div class="radio">
-      <label><%= f.radio_button(:cosmetic_type, "Armor") %>Armor</label>
-    </div>
-    <div class="radio">
-      <label><%= f.radio_button(:cosmetic_type, "Weapon") %>Weapon</label>
-    </div>
-    <div class="radio">
-      <label><%= f.radio_button(:cosmetic_type, "Helm") %>Helm</label>
-    </div>   
-    <%= f.submit "Done!", class: "btn btn-primary" %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= render 'shared/cosmetic_item_form' %>
+
   </center>
 <% end -%>
 <h1>BAN PLAYER</h1>

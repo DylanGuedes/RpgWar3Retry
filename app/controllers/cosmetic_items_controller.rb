@@ -3,14 +3,15 @@ class CosmeticItemsController < ApplicationController
     item = CosmeticItem.new(item_params)
     if item.save
       flash[:success] = "Created."
+      redirect_to admin_panel_path
     else
-      render 'new'
-    end
-    redirect_to admin_panel_path
+      @cosmetic_item = CosmeticItem.new
+      render '/admin_panel/index'
+    end    
   end
 
-    private
+  private
   def item_params
-    params.require(:cosmetic_item).permit(:name, :description, :price, :damage, :defense, :cosmetic_type)
+    params.require(:cosmetic_item).permit(:name, :image_path, :description, :price, :damage, :defense, :cosmetic_type)
   end
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #items controller
   resources :items
-  resources :cosmetic_items
+  resources :cosmetic_items, only: [:create, :destroy]
 
   #rpg controller
   get '/help' => 'rpg#help'

@@ -1,7 +1,12 @@
 class CosmeticItem < ActiveRecord::Base
+  validates :name, presence: true
+  validates :damage, presence: true
+  validates :defense, presence: true
+  validates :type, presence: true
+  
   def apply_status player
     generic_item = self.cosmetic_type.downcase
-    unless player.send(generic_item, ".name") == self.name
+    unless player.send(generic_item).send("name") == self.name
       player.penalize
     end
     player.gold -= self.price
