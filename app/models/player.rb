@@ -20,8 +20,22 @@ class Player < ActiveRecord::Base
     in_percentage self.mp_max, self.mp_min
   end
 
+  def aggregate_damage
+    self.damage + self.extra_damage
+  end
+
+  def aggregate_defense
+    self.defense + self.extra_defense
+  end
+
   def exp_in_percentage
     in_percentage LEVEL_EXP[self.level - 1], self.exp
+  end
+
+  def penalize
+    self.extra_damage = 0
+    self.extra_defense = 0
+    self.save
   end
 
   def can_purchase? item

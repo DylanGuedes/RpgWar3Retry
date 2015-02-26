@@ -1,8 +1,8 @@
 <div class="container" %>    
       <h3>
-      <span class="label label-default"><%= image_tag("battered-axe.png", size: "30x25", title: "Damage") %> <%= current_user.player.damage %></span>
+      <span class="label label-default"><%= image_tag("battered-axe.png", size: "30x25", title: "Damage") %> <%= "#{current_user.player.damage}"+"+(#{current_user.player.extra_damage})" %></span>
       <span class="label label-default"><%= image_tag("gold-bar.png", size: "30x25", title: "Gold") %><%= current_user.player.gold %></span>
-      <span class="label label-default"><%= image_tag("round-shield.png", title: "Defense", size: "30x25") %><%= current_user.player.defense %></span>
+      <span class="label label-default"><%= image_tag("round-shield.png", title: "Defense", size: "30x25") %><%= "#{current_user.player.defense}+(#{current_user.player.extra_defense})" %></span>
       <span class="label label-default"><%= image_tag("dripping-knife.png", title: "Kills", size: "30x25") %><%= "  #{current_user.player.kills}" %></span>
       <span class="label label-default"><%= image_tag("carrion.png", title: "Deaths", size: "30x25") %><%= "   #{current_user.player.deaths}" %></span>
       <br>
