@@ -16,7 +16,6 @@ class CosmeticItem < ActiveRecord::Base
     player.save
   end
 
-
   def parse_item
     new_item = self.cosmetic_type.constantize.new(name: self.name, price: self.price, description: self.description, damage: self.damage,
               defense: self.defense)

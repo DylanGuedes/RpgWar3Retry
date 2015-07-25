@@ -6,6 +6,7 @@ class Player < ActiveRecord::Base
   has_one :helm
   has_one :armor
   has_one :weapon
+  has_many :items
   belongs_to :user
 
   def playable?
@@ -38,7 +39,34 @@ class Player < ActiveRecord::Base
     self.save
   end
 
+  def absorb desired_item
+    item_type = desired_item.cosmetic_type.downcase
+    self.penalize if needs_penalization?(desired_item)
+    self.gold -= desired_item.price
+    self.extra_damage += desired_item.damage
+    self.extra_defense += desired_item.defense
+    self.save
+  end
+
+  def needs_penalization? desired_item
+    item_type = desired_item.cosmetic_type.downcase
+    if !have_slots?(desired_item) || (self.send(item_type).send('name') == desired_item.name)
+      false
+    else
+      true
+    end
+  end
+
   def can_purchase? item
+    enough_money?(item) ? true : false
+  end
+
+  def have_slots? item
+    item_type = item.cosmetic_type.downcase
+    self.send(item_type) ? true : false
+  end
+
+  def enough_money?(item)
     self.gold >= item.price ? true : false
   end
 end

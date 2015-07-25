@@ -12,12 +12,13 @@ Rails.application.routes.draw do
 
   #shop controller
   get '/shop' => 'shop#index'
-  get '/purchase_item/:id' => 'shop#purchase_item'
+  # get '/purchase_item/:id' => 'shop#purchase_item'
+  post '/buy_item' => 'shop#buy_item'
 
   #users controller
   resources :users
   get '/signup' => 'users#new'
-  
+
   #sessions controller
   get '/signin' => 'sessions#new'
   delete '/signout' => 'sessions#destroy'
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
 
   #battle controller
   get '/attack_player' => 'battle#attack_player'
-  
+
   #admin_panel controller
   get '/admin_panel' => 'admin_panel#index'
   # The priority is based upon order of creation: first created -> highest priority.

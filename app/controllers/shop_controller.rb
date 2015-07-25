@@ -6,15 +6,14 @@ class ShopController < ApplicationController
     @armors = @items.where(cosmetic_type: "Armor")
   end
 
-  def purchase_item
+  def buy_item
     desired_item = CosmeticItem.find(params[:id])
     if current_user.player.can_purchase? desired_item
-      desired_item.apply_status current_user.player
+      current_user.player.absorb desired_item
       flash[:success] = "Purchased!"
-      redirect_to shop_path
     else
       flash[:danger] = "You don't have enough gold."
-      redirect_to shop_path
     end
+    redirect_to shop_path
   end
 end
