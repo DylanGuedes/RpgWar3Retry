@@ -1,9 +1,5 @@
 <h1>NEW ITEM</h1>
-<%= fields_for @cosmetic_item do |f| %>
-  <center>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= render 'shared/cosmetic_item_form' %>
-
-  </center>
-<% end -%>
+<center>
+  <%= render 'shared/cosmetic_item_form' %>
+</center>
 <h1>BAN PLAYER</h1>
