@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-  has_one :player
+  has_many :players
 
   validates :login, length: { maximum: 50, minimum: 5 },
                     uniqueness: { case_sensitive: false }
@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  def last_player
+    self.players.last
+  end
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

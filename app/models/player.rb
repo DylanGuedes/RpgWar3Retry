@@ -8,9 +8,14 @@ class Player < ActiveRecord::Base
   has_one :weapon
   has_many :items
   belongs_to :user
+  belongs_to :match
 
   def playable?
-    !self.role.nil?
+    if !self.role.nil? && self.match == current_match
+      true
+    else
+      false
+    end
   end
 
   def hp_in_percentage
@@ -68,5 +73,21 @@ class Player < ActiveRecord::Base
 
   def enough_money?(item)
     self.gold >= item.price ? true : false
+  end
+
+  def dead?
+    self.hp_min < 0 ? true : false
+  end
+
+  def to_jungle
+    self.state = "jungle"
+    self.atacable = true
+    self.save
+  end
+
+  def to_war
+    self.state = "war"
+    self.atacable = true
+    self.save
   end
 end

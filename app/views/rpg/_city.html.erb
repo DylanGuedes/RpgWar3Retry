@@ -1,42 +1,22 @@
-<div class="container" %>    
-      <h3>
-      <span class="label label-default"><%= image_tag("battered-axe.png", size: "30x25", title: "Damage") %> <%= "#{current_user.player.damage}"+"+(#{current_user.player.extra_damage})" %></span>
-      <span class="label label-default"><%= image_tag("gold-bar.png", size: "30x25", title: "Gold") %><%= current_user.player.gold %></span>
-      <span class="label label-default"><%= image_tag("round-shield.png", title: "Defense", size: "30x25") %><%= "#{current_user.player.defense}+(#{current_user.player.extra_defense})" %></span>
-      <span class="label label-default"><%= image_tag("dripping-knife.png", title: "Kills", size: "30x25") %><%= "  #{current_user.player.kills}" %></span>
-      <span class="label label-default"><%= image_tag("carrion.png", title: "Deaths", size: "30x25") %><%= "   #{current_user.player.deaths}" %></span>
-      <br>
-      </h3>
-    <h3><%= current_user.player.state %></h3>
-    <div class="city_bars">
-      <center>
-        <h1>
-          <div class="progress" title="EXP to next level">
-            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.exp_in_percentage %>%;" title="Current EXP">            
-            </div>
-          </div>
-          <div class="progress" title="Max HP">
-            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.hp_min %>%;" title="Current HP">            
-            </div>
-          </div>
-          <div class="progress" title="Max MP">
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.player.mp_in_percentage %>%;" title="Current MP">            
-            </div>
-          </div>
-        </h1>
-      </center>
-    </div>
-
+<div class="city_section" %>
     <h1>
-      <div class="text-left">
+    <%= link_to "Targets", rpg_targets_path, class: "btn btn-danger" %>
+    <div class="text-left">
+      <span class="label label-warning">
+        <%= image_tag("battle-gear.png", size: "50x40", title: "Shop") %><%= link_to 'Shop', shop_path %>
+      </span>
 
-      <span class="label label-warning"><%= image_tag("battle-gear.png", size: "50x40", title: "Shop") %><%= link_to 'Shop', shop_path %></span>
-      <span class="label label-success"><%= image_tag("strong.png", size: "50x40", title: "Jungle") %><%= link_to 'Jungle', shop_path %></span>
-      <span class="label label-danger"><%= image_tag("pyromaniac.png", size: "50x40", title: "Targets") %><%= link_to 'Targets', targets_path %></span>
+      <span class="label label-success">
+        <%= image_tag("strong.png", size: "50x40", title: "Jungle") %><%= link_to 'Jungle', rpg_jungle_path %>
+      </span>
 
+
+      <span class="label label-danger">
+        <%= image_tag("pyromaniac.png", size: "50x40", title: "Targets") %><%= link_to 'Targets', targets_path %>
+      </span>
     </div>
     </h1>
-    <%= link_to 'Battles', '#' %>
-</div>  
+    <%= link_to 'Battles', rpg_battles_path %>
+</div>
 
 

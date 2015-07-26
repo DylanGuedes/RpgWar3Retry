@@ -13,6 +13,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.float :damage, :default => 15
       t.boolean :atacable, :default => false
       t.float :defense, :default => 0
+      t.belongs_to :match
 
       t.timestamps null: false
     end

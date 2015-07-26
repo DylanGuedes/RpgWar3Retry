@@ -7,6 +7,7 @@ class CreateBattles < ActiveRecord::Migration
       t.integer :loser_id
       t.boolean :draw
       t.text :battle_log, :default => ""
+      t.belongs_to :match
 
       t.timestamps null: false
     end

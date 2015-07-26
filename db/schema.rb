@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224190710) do
+ActiveRecord::Schema.define(version: 20150726140327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150224190710) do
     t.integer  "loser_id"
     t.boolean  "draw"
     t.text     "battle_log", default: ""
+    t.integer  "match_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -53,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150224190710) do
     t.string   "image_path"
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.time     "turn_start_time", default: '2000-01-01 14:46:09'
+    t.time     "turn_final_time", default: '2000-01-01 14:46:09'
+    t.integer  "winner_id"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "deaths",        default: 0
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150224190710) do
     t.float    "damage",        default: 15.0
     t.boolean  "atacable",      default: false
     t.float    "defense",       default: 0.0
+    t.integer  "match_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "level",         default: 1

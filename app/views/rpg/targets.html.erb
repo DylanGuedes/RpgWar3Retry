@@ -1,3 +1,18 @@
-<% @players.each do |targ| %>
-  <%= button_to "Attack", { :controller => "battle", :action => "attack_player", :starter_id => current_user.player.id, :target_id => targ.id } %>
-<% end %>
+<table class="table targets_table">
+  <thead>
+    <td>Name</td>
+    <td>HP</td>
+    <td>MP</td>
+    <td>ATTACK!!!</td>
+  </thead>
+  <% @players.each do |t| %>
+    <% unless t == current_user.last_player %>
+      <tr>
+        <td><%= t.user.login %></td>
+        <td><%= t.hp_min %></td>
+        <td><%= t.mp_min %></td>
+        <td><%= link_to "", rpg_attack_player_path(target_id: t.id), method: :post, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
