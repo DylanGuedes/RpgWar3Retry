@@ -1,0 +1,48 @@
+$red-dense-001: #F43E3E;
+$red-dense-002: #A82222;
+
+.rpg_header {
+  background: $red-dense-001;
+  padding: 10px;
+}
+
+.player_status_icon {
+  background: $red-dense-002;
+  padding-top: 5px;
+  padding-bottom: 9px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: 1px solid #D03737;
+
+  color: white;
+  border-radius: 5px;
+  h6 {
+    display: inline;
+    font-size: 7px;
+  }
+}
+
+.glyphheader {
+  height: 31px;
+  width: 50px;
+}
+
+.isolateheader {
+  background-color: #A82222;
+}
+
+.isolatetree {
+  background-color: #2A482A;
+  border: 1px solid #D03737;
+
+  color: white;
+  border-radius: 5px;
+}
+
+.isolatedollar {
+  background-color: #FF9C00;
+  border: 1px solid #D03737;
+
+  color: white;
+  border-radius: 5px;
+}

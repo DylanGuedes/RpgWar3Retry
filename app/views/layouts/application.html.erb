@@ -6,8 +6,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>  
+  <body>
     <%= render '/layouts/header' %>
+
+    <% if signed_in? && can_play?(current_user) %>
+      <%= render '/layouts/rpg_header' %>
+    <% end %>
+
     <div class="stuff">
       <% if signed_in? && can_play?(current_user) %>
         <div class="row">
@@ -16,11 +21,11 @@
           <div class="col-md-2">
             <%= render '/layouts/sidebar' %>
           </div>
-          <div class="col-md-9">      
-            <% if !flash.empty? %>        
+          <div class="col-md-9">
+            <% if !flash.empty? %>
               <% flash.each do |message_type, message| %>
                 <center><div class="alert alert-<%= message_type %>"><%= message %></div></center>
-              <% end %>        
+              <% end %>
             <% end %>
             <%= yield %>
           </div>

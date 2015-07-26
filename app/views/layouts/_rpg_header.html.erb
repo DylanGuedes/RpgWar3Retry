@@ -1,0 +1,33 @@
+<div class="rpg_header">
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <span class="glyphicon glyphicon-flash player_status_icon damage">
+        <%= "#{current_user.last_player.aggregate_damage}" %>
+      </span>
+
+      <span class="glyphicon glyphicon-tower player_status_icon damage">
+        <%= current_user.last_player.aggregate_defense %>
+      </span>
+
+      <span class="glyphicon glyphicon-fire player_status_icon damage">
+        <%= current_user.last_player.kills %>
+      </span>
+
+      <span class="glyphicon glyphicon-certificate player_status_icon damage">
+        <%= current_user.last_player.deaths %>
+      </span>
+
+      <%= link_to "", rpg_targets_path, class: "btn btn-danger glyphicon glyphicon-tint glyphheader isolateheader" %>
+
+      <%= link_to "", rpg_targets_path, class: "btn btn-success glyphicon glyphicon-tree-deciduous glyphheader isolatetree" %>
+
+      <%= link_to "", shop_path, class: "btn btn-warning glyphicon glyphicon-usd glyphheader isolatedollar" %>
+
+
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -6,10 +6,18 @@ class Battle < ActiveRecord::Base
   belongs_to :player
   belongs_to :match
 
+  def winner
+    Player.find(self.winner_id)
+  end
+
+  def loser
+    Player.find(self.loser_id)
+  end
+
   def apply_status
     MAX_TURN.times do |a|
-      starter = Player.find_by(id: self.starter_id)
-      target = Player.find_by(id: self.target_id)
+      starter = Player.find(self.starter_id)
+      target = Player.find(self.target_id)
 
       target.hp_min -= (starter.aggregate_damage - target.aggregate_defense)
       unless target.dead?

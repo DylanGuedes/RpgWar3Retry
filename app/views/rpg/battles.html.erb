@@ -1,3 +1,27 @@
-<% @player_battles.each do |b| %>
-  <%= b %>
-<% end %>
+<table class="table battles_table">
+  <thead>
+    <td>Code</td>
+    <td>Started by</td>
+    <td>Target</td>
+    <td>Draw?</td>
+    <td>Winner</td>
+    <td>Loser</td>
+  </thead>
+
+  <% @player_battles.each do |b| %>
+    <tr>
+      <td><%= b.id %></td>
+      <td><%= link_to "#{b.starter.user.login}", b.starter.user %></td>
+      <td><%= link_to "#{b.target.user.login}", b.target.user %></td>
+      <% if b.draw %>
+        <td><span class="glyphicon glyphicon-ok btn btn-danger"></span></td>
+        <td>NA</td>
+        <td>NA</td>
+      <% else %>
+        <td><span class="glyphicon glyphicon-remove btn btn-danger"></span></td>
+        <td><%= link_to "#{b.winner.user.login}", b.winner.user %></td>
+        <td><%= link_to "#{b.loser.user.login}", b.loser.user %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get '/help' => 'rpg#help'
   get '/targets' => 'rpg#targets'
   get '/new_player' => 'rpg#new_player'
+  get '/rpg/jungle' => 'rpg#jungle'
+  get '/rpg/battles' => 'rpg#battles'
+  get '/rpg/targets' => 'rpg#targets'
+  post '/rpg/attack_player/' => 'rpg#attack_player'
 
   #shop controller
   get '/shop' => 'shop#index'
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
 
   #admin_panel controller
   get '/admin_panel' => 'admin_panel#index'
+  get '/admin/new_match' => 'admin_panel#new_match'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
